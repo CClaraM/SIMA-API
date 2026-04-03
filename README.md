@@ -45,3 +45,91 @@ Gestión de observaciones académicas o convivenciales
 Notificación de eventos relevantes asociados al aprendiz
 
 Este enfoque permite consolidar una base funcional para el seguimiento formativo, sobre la cual se pueden integrar futuras funcionalidades del sistema.
+
+endpoints
+
+GET http://localhost:3000/api/auth/me
+
+Headers:
+Authorization : Bearer Token
+
+Respesta:
+{
+    "ok": true,
+    "message": "Usuario autenticado obtenido correctamente",
+    "data": {
+        "id_usuario": 1,
+        "email": "admin.ctpi@sena.edu.co",
+        "estado": "ACTIVO",
+        "id_rol": 1,
+        "rol": "administrador",
+        "rol_detalle": {
+            "id_rol": 1,
+            "nombre": "administrador",
+            "descripcion": "Acceso total a la plataforma"
+        }
+    }
+}
+
+GET http://localhost:3000/api/roles
+
+Headers:
+Authorization : Bearer Token
+
+Respesta:
+{
+    "ok": true,
+    "message": "Roles obtenidos correctamente",
+    "data": [
+        {
+            "id_rol": 1,
+            "nombre": "administrador",
+            "descripcion": "Acceso total a la plataforma"
+        },
+        {
+            "id_rol": 2,
+            "nombre": "profesor",
+            "descripcion": "Instructores"
+        },
+        {
+            "id_rol": 3,
+            "nombre": "estudiante",
+            "descripcion": "Aprendices"
+        }
+    ]
+}
+
+GET http://localhost:3000/api/roles/1/usuarios
+
+Headers:
+Authorization : Bearer Token
+
+Respesta:
+
+
+PUT  http://localhost:3000/api/roles/usuarios/3
+
+Headers:
+Authorization : Bearer Token
+
+Body:
+{
+  "id_rol": 2
+}
+
+Respuesta:
+{
+    "ok": true,
+    "message": "Rol asignado correctamente al usuario",
+    "data": {
+        "id_usuario": 3,
+        "email": "aprendiz1@sena.edu.co",
+        "estado": "ACTIVO",
+        "id_rol": 2,
+        "rol": {
+            "id_rol": 2,
+            "nombre": "profesor",
+            "descripcion": "Instructores"
+        }
+    }
+}

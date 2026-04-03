@@ -7,5 +7,5 @@ module.exports = {
   DB_NAME: process.env.DB_NAME || 'sigma_mvp',
   DB_USER: process.env.DB_USER || 'root',
   DB_PASSWORD: process.env.DB_PASSWORD || '',
-  JWT_SECRET: process.env.JWT_SECRET || 'dev_secret_change_me',
+  JWT_SECRET: process.env.JWT_SECRET || 'clave_secreta',
 };
